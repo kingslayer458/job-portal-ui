@@ -1,13 +1,14 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm run build"
+buildCommand = "npm install && npm run build"
 
 [deploy]
 startCommand = "npm run start"
 healthcheckPath = "/"
 healthcheckTimeout = 100
-restartPolicyType = "on-failure"
-restartPolicyMaxRetries = 10
 
 [env]
-PORT = "3000" 
+PORT = "3000"
+NODE_ENV = "production"
+NEXT_TELEMETRY_DISABLED = "1"
+NEXT_PUBLIC_API_URL = "https://job-portal-ui-production.up.railway.app" 
